@@ -84,9 +84,21 @@ public class Main {
 
         for (String symbol : RomanMap.keySet()) {
             var value = RomanMap.get(symbol);
-            while (number >= value) {
+            if (number == value) {
                 romanNumeral.append(symbol);
                 number -= value;
+            } else if (number < RomanMap.get("C") && number > RomanMap.get("XC")) {
+                romanNumeral.append("XC");
+                number -= 90;
+            } else if (number > RomanMap.get("L") && number < RomanMap.get("XC")) {
+                romanNumeral.append("L");
+                number -= 50;
+            } else if (number > RomanMap.get("XL") && number < RomanMap.get("L")) {
+                romanNumeral.append("L");
+                number -= 40;
+            } else if (number > RomanMap.get("X") && number < RomanMap.get("XL")) {
+                romanNumeral.append("X");
+                number -= 10;
             }
         }
 
