@@ -57,7 +57,7 @@ public class Main {
 
             if (numberA % 1 > 0 || numberB % 1 > 0)
                 throw new NumberFormatException("Numbers must be integers");
-            else if (numberA < 0 || numberA > 10 || numberB < 0 || numberB > 10)
+            else if (numberA < 1 || numberA > 10 || numberB < 1 || numberB > 10)
                 throw new Exception("Numbers must be from 1 to 10 inclusive");
         }
 
@@ -94,7 +94,7 @@ public class Main {
                 romanNumeral.append("L");
                 number -= 50;
             } else if (number > RomanMap.get("XL") && number < RomanMap.get("L")) {
-                romanNumeral.append("L");
+                romanNumeral.append("XL");
                 number -= 40;
             } else if (number > RomanMap.get("X") && number < RomanMap.get("XL")) {
                 romanNumeral.append("X");
