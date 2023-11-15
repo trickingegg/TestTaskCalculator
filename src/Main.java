@@ -3,8 +3,7 @@ import java.util.Scanner;
 
 import static java.util.Map.entry;
 
-public class Main
-{
+public class Main {
     private static final Map<String, Integer> RomanMap = Map.ofEntries(
             entry("I", 1),
             entry("II", 2),
@@ -30,14 +29,12 @@ public class Main
 
         try {
             System.out.println("result: " + calc(operation));
-        }
-        catch (Exception e){
+        } catch (Exception e){
             System.out.println("Error during calculation: " + e.getMessage());
         }
     }
 
-    public static String calc(String input) throws Exception
-    {
+    public static String calc(String input) throws Exception {
         var numberA = 0d;
         var numberB = 0d;
         var result = 0;
@@ -50,13 +47,11 @@ public class Main
         if (isRoman != RomanMap.containsKey(parts[2]))
             throw new NumberFormatException("Both numbers must be the same type: Arabic or Roman");
 
-        if (isRoman)
-        {
+        if (isRoman) {
             numberA = RomanMap.get(parts[0]);
             numberB = RomanMap.get(parts[2]);
         }
-        else
-        {
+        else {
             numberA = Double.parseDouble(parts[0]);
             numberB = Double.parseDouble(parts[2]);
 
@@ -82,9 +77,8 @@ public class Main
     }
 
     public static String convertToRoman(int number) {
-        if (number < 1 || number > 100) {
+        if (number < 1 || number > 100)
             throw new IllegalArgumentException("With Roman input the result can't be less than 1");
-        }
 
         StringBuilder romanNumeral = new StringBuilder();
 
